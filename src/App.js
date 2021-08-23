@@ -5,10 +5,11 @@ import {
   Route
 } from "react-router-dom";
 
-import Menu from './Components/Menu' // Importa o componente Menu
-import Feed from './Components/Feed' // Importa o componente Feed
-import Barra from './Components/Barra' // Importa o componente Barra
+import Menu from './Components/Menu/Menu' // Importa o componente Menu
+import Feed from './Components/Feed/Feed' // Importa o componente Feed
+import Header from './Components/Header/Header' // Importa o componente Barra
 import { getPost } from './APIs/post';
+import NotFound from './Components/NotFound/NotFound';
 
 const App = () => {
 
@@ -16,8 +17,8 @@ const App = () => {
 
     return(
     <Router>
+        <Header/>
         <Menu/>
-        <Barra/>
 
         <Switch>
             <Route path='/' exact>
@@ -25,7 +26,7 @@ const App = () => {
             </Route>
 
             <Route path='*'>
-                <h1>Not found</h1>
+                <NotFound/>
             </Route>
         </Switch>
     </Router>

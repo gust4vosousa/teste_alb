@@ -1,0 +1,67 @@
+.newComment input, textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+
+.newComment input:focus, 
+            textarea:focus
+{
+    outline-color: #242424;
+    outline-style: solid;
+    outline-width: 1px;
+}
+
+.newComment textarea {
+    height: 80px;
+    text-align: start;
+    resize: none;
+  }
+  
+.newComment label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+.newComment button {
+    padding: 15px;
+    border: none;
+    font-size: 20px;
+    background-color: #d48831;
+    color: white;
+    transition: background-color .4s;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    float: right;
+    margin-top: 6px;
+}
+
+.newComment button:hover {
+    background-color: #242424;
+  }
+
+  .col-15 {
+    float: left;
+    width: 15%;
+    margin-top: 6px;
+  }
+  
+  .col-85 {
+    float: left;
+    width: 85%;
+    margin-top: 6px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }

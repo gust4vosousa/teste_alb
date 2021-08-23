@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #c06600;
+    z-index: 3;
+    height: 60px;
+  }
+
+  .title {
+    display: inline-block;
+    cursor: default;
+  }
+
+  .logo {
+    margin-right: 10px;
+  }
+
+  .busca {
+    display: flex;
+  }
+
+  .header input {
+    border: none;
+    margin-left: 50px;
+    background-color: white;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 5px;
+  }
+
+  .header input:focus {
+    outline-color: #242424;
+    outline-style: solid;
+    outline-width: 1px;
+  }
+
+  .header button {
+    border: none;
+    background-color: #d48831;
+    color: white;
+    transition: background-color .4s;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .header button:hover {
+    background-color: #242424;
+  }
+
+  /* Ajuste responsivo para telas menores */
+
+  @media screen and (max-width: 700px) {
+    .header {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+  }
