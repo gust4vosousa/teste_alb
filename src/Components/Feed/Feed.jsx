@@ -1,16 +1,15 @@
 import './Feed.css'
 import React, {useState, useEffect} from 'react' //importa a biblioteca React
 import {getPosts} from '../../APIs/post';
-import AddPost from '../AddPost/AddPost';
 import AddComment from '../AddComment/AddComment';
+
 import userIconSmall from '../../Images/userSmall.png'
 import userIconLarge from '../../Images/userLarge.png'
 import newCommentIcon from '../../Images/newComment.png'
-import newPostIcon from '../../Images/newPost.png'
 import commentsIcon from '../../Images/comments.png'
 
 export default () => { //exporta a função descrita abaixo
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts, newPost, setNewPost] = useState([]);
     
     useEffect(() => {        
         getPosts()
@@ -18,10 +17,6 @@ export default () => { //exporta a função descrita abaixo
     },[]);
     
     return <div className="feed">
-        <div className='postBox'>
-            <h1><img src={newPostIcon}/>Nova postagem</h1>
-            <AddPost/>
-        </div>
         {posts.map((post) =>
             <div className='postBox'>
                 <div className='postNome'>
@@ -36,7 +31,7 @@ export default () => { //exporta a função descrita abaixo
                             </div>
                         </div>
                     </div>
-                    <a href='#'>@{post.user.username}</a>
+                    <a href='#'>{post.user.username}</a>
                 </div>
                 <div className='postTitulo'> 
                     <h1>{post.title}</h1>

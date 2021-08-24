@@ -1,78 +1,81 @@
 import './AddPost.css'
 import React, { Component } from "react";
-import axios from "axios";
+import newPostIcon from '../../Images/newPost.png'
 
 export class AddPost extends Component {
     constructor(props) {
         super(props)
   
         this.state = {
-            // userId: '',
+            userName: '',
             title: '',
             body: ''
         }
     }
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('https://jsonplaceholder.typicode.com/posts', this.state)
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-        
+        this.setState({
+            [e.target.name]: e.target.value})
     }
 
-    // handleSubmitLocal = (e) => {
-    //     e.preventDefault()
-
-    // }
-
     render() {
-        const {userId, title, body} = this.state
+        const {userName, title, body} = this.state
         return (
-            <div>
-                <form onSubmit={this.handleSubmit} className='newPost'>
-                    {/* <div className='row'>
-                        <label className='col-15'>ID do usuário</label>
-                        <input 
-                        type='number'
-                        name='userId'
-                        placeholder='Insira aqui seu ID de usuário...'
-                        className='col-85'
-                        value={userId}
-                        onChange={this.handleChange}/>
-                    </div> */}
-                    <div className='row'>
-                        <label className='col-15'>Título</label>
-                        <input
-                        type='text'
-                        name='title'
-                        placeholder='Insira aqui o título da postagem...'
-                        className='col-85'
-                        value={title} 
-                        onChange={this.handleChange}/>
+            <div className='addPost'>
+                <div className='addPostBox'>
+                    <h1><img src={newPostIcon}/>Nova postagem</h1>
+                    <form onSubmit={this.handleSubmit} className='newPostForm'>
+                        <div className='row'>
+                            <label className='col-15'>Nome de usuário</label>
+                            <input 
+                            type='text'
+                            name='userName'
+                            placeholder='Insira aqui seu nome de usuário...'
+                            className='col-85'
+                            value={userName}
+                            onChange=''/>
+                        </div>
+                        <div className='row'>
+                            <label className='col-15'>Título</label>
+                            <input
+                            type='text'
+                            name='title'
+                            placeholder='Insira aqui o título da postagem...'
+                            className='col-85'
+                            value={title} 
+                            onChange=''/>
+                        </div>
+                        <div className='row'>
+                            <label className='col-15'>Postagem</label>
+                            <textarea
+                            type='text'
+                            name='body'
+                            placeholder='Insira aqui sua postagem...'
+                            className='col-85'
+                            value={body}
+                            onChange=''/>
+                        </div>
+                        <div className='row'>
+                            <button type='submit'>Enviar</button>
+                        </div>
+                    </form>
+                </div>
+                <div className='postBox'>
+                    <div className='postNome'>
+                        <a href='#'>{userName}</a>
                     </div>
-                    <div className='row'>
-                        <label className='col-15'>Postagem</label>
-                        <textarea
-                        type='text'
-                        name='body'
-                        placeholder='Insira aqui sua postagem...'
-                        className='col-85'
-                        value={body}
-                        onChange={this.handleChange}/>
+                    <div className='postTitulo'> 
+                        <h1>{title}</h1>
                     </div>
-                    <div className='row'>
-                        <button type='submit'>Enviar</button>
+                    <div className='postCorpo'>
+                        <p>{body}</p>
                     </div>
-                </form>
+                </div>
             </div>
         )
     }

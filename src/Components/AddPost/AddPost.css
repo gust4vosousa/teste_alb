@@ -1,11 +1,47 @@
-.newPost input, textarea {
+.addPost {
+  margin-top: 50px;
+  height: 100%;
+  position: relative;
+  display: block;
+  z-index: 2;
+  padding: 10px 30px;
+  margin-left: 250px;
+}
+
+.addPost h1 {
+  font-size: 22px;
+}
+
+.addPost h2 {
+  font-size: 20px;
+}
+
+.addPost p {
+  font-size: 16px;
+}
+
+.addPostBox {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #242424;
+  padding: 20px;
+  margin-top: 20px;
+  transition: background-color .4s;
+  width: 100%;
+}
+
+.addPostBox:hover {
+  background-color: #ac5c02;
+}
+
+.newPostForm input, textarea {
     padding: 12px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     resize: vertical;
   }
 
-.newPost input:focus, 
+.newPostForm input:focus, 
             textarea:focus
 {
     outline-color: #242424;
@@ -13,18 +49,18 @@
     outline-width: 1px;
 }
 
-.newPost textarea {
+.newPostForm textarea {
     height: 80px;
     text-align: start;
     resize: none;
   }
   
-.newPost label {
+.newPostForm label {
     padding: 12px 12px 12px 0;
     display: inline-block;
   }
   
-.newPost button {
+.newPostForm button {
     padding: 15px;
     border: none;
     font-size: 20px;
@@ -37,7 +73,7 @@
     margin-top: 6px;
 }
 
-.newPost button:hover {
+.newPostForm button:hover {
     background-color: #242424;
   }
 
@@ -58,6 +94,40 @@
     display: table;
     clear: both;
   }
+
+  /* Exibição do novo post */
+
+  .newPostBox {
+    display: inline-flex;
+    flex-direction: column;
+    background-color: #242424;
+    padding: 20px;
+    margin-top: 20px;
+    transition: background-color .4s;
+    width: 100%;
+}
+
+.newPostBox:hover {
+    background-color: #ac5c02;
+}
+
+.newPostBox img {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+}
+
+.postNome a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+}
+
+.postNome a:hover {
+  color: #242424;
+  font-weight: bolder;
+  text-decoration: underline;
+}
   
   @media screen and (max-width: 700px) {
     .col-25, .col-75, input[type=submit] {
