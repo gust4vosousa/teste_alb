@@ -10,6 +10,7 @@ import Feed from './Components/Feed/Feed' // Importa o componente Feed
 import Header from './Components/Header/Header' // Importa o componente Barra
 import { getPost } from './APIs/post';
 import NotFound from './Components/NotFound/NotFound';
+import AddPost from './Components/AddPost/AddPost';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
 
         <Switch>
             <Route path='/' exact>
+                <AddPost/>
                 <Feed/>
             </Route>
 
