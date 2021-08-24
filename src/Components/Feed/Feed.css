@@ -14,6 +14,14 @@
     font-size: 22px;
 }
 
+.feed h2 {
+    font-size: 20px;
+}
+
+.feed p {
+    font-size: 16px;
+}
+
 .postBox {
     display: inline-flex;
     flex-direction: column;
@@ -25,7 +33,7 @@
 }
 
 .postBox:hover {
-    background-color: #c06600;
+    background-color: #ac5c02;
 }
 
 .postBox img {
@@ -37,7 +45,7 @@
 .postNome a {
     text-decoration: none;
     color: white;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .postNome a:hover {
@@ -46,25 +54,16 @@
     text-decoration: underline;
 }
 
-.postNome p {
-    font-size: 20px;
-    display: inline-block;
-}
 
 /* Comentários dos posts */
 
 .commentsHeader, .newCommentHeader {
-    border-top: 2px solid #c06600;
+    border-top: 2px solid #ac5c02;
 }
 
 .postBox:hover .commentsHeader,
 .postBox:hover .newCommentHeader {
     border-top: 2px solid #242424;
-}
-
-.commentsBody p {
-    margin-left: 45px;
-    font-size: 14px;
 }
 
 /* Dropdown com as informações do usuário expandidas */
@@ -106,6 +105,7 @@
         height: auto;
         position: relative;
         margin-left: 0px;
+        word-wrap: break-word;
     }
 
     .postTitulo {

@@ -8,7 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #c06600;
+    background-color: #ac5c02;
     z-index: 3;
     height: 60px;
   }
@@ -30,7 +30,6 @@
     border: none;
     margin-left: 50px;
     background-color: white;
-    font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
     padding: 5px;
   }

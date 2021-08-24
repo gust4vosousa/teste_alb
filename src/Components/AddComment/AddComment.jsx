@@ -7,7 +7,7 @@ export class AddComment extends Component {
         super(props)
 
         this.state = {
-            postId: '',
+            // postId: '',
             email: '',
             body: ''
         }
@@ -33,8 +33,8 @@ export class AddComment extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className='newComment'>
-                    <div className='row'>
-                        <label for='userId' className='col-15'>ID do post</label>
+                    {/* <div className='row'>
+                        <label className='col-15'>ID do post</label>
                         <input 
                         type='number'
                         name='postId'
@@ -42,9 +42,9 @@ export class AddComment extends Component {
                         className='col-85'
                         value={postId}
                         onChange={this.handleChange}/>
-                    </div>
+                    </div> */}
                     <div className='row'>
-                        <label for='email' className='col-15'>E-mail</label>
+                        <label className='col-15'>E-mail</label>
                         <input
                         type='email'
                         name='email'
@@ -54,7 +54,7 @@ export class AddComment extends Component {
                         onChange={this.handleChange}/>
                     </div>
                     <div className='row'>
-                        <label for='body' className='col-15'>Comentário</label>
+                        <label className='col-15'>Comentário</label>
                         <textarea
                         type='text'
                         name='body'

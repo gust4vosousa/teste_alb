@@ -5,9 +5,9 @@ import axios from "axios";
 export class AddPost extends Component {
     constructor(props) {
         super(props)
-
+  
         this.state = {
-            userId: '',
+            // userId: '',
             title: '',
             body: ''
         }
@@ -26,15 +26,21 @@ export class AddPost extends Component {
         .catch(error => {
             console.log(error)
         })
+        
     }
+
+    // handleSubmitLocal = (e) => {
+    //     e.preventDefault()
+
+    // }
 
     render() {
         const {userId, title, body} = this.state
         return (
             <div>
                 <form onSubmit={this.handleSubmit} className='newPost'>
-                    <div className='row'>
-                        <label for='userId' className='col-15'>ID do usuário</label>
+                    {/* <div className='row'>
+                        <label className='col-15'>ID do usuário</label>
                         <input 
                         type='number'
                         name='userId'
@@ -42,9 +48,9 @@ export class AddPost extends Component {
                         className='col-85'
                         value={userId}
                         onChange={this.handleChange}/>
-                    </div>
+                    </div> */}
                     <div className='row'>
-                        <label for='title' className='col-15'>Título</label>
+                        <label className='col-15'>Título</label>
                         <input
                         type='text'
                         name='title'
@@ -54,7 +60,7 @@ export class AddPost extends Component {
                         onChange={this.handleChange}/>
                     </div>
                     <div className='row'>
-                        <label for='body' className='col-15'>Postagem</label>
+                        <label className='col-15'>Postagem</label>
                         <textarea
                         type='text'
                         name='body'
