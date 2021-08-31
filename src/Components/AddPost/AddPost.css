@@ -60,7 +60,7 @@
     display: inline-block;
   }
   
-.newPostForm button {
+button {
     padding: 15px;
     border: none;
     font-size: 20px;
@@ -73,7 +73,7 @@
     margin-top: 6px;
 }
 
-.newPostForm button:hover {
+button:hover {
     background-color: #242424;
   }
 

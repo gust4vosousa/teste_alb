@@ -1,48 +1,59 @@
 import './AddComment.css'
 import React, { Component } from "react";
-import axios from "axios";
+import ShowNewComment from '../ShowNewComment/ShowNewComment';
 
 export class AddComment extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            // postId: '',
             email: '',
-            body: ''
+            body: '',
+            outputEmail: '',
+            outputBody: '',
         }
     }
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post('https://jsonplaceholder.typicode.com/comments', this.state)
-        .then(response => {
-            console.log(response)
+    handleSubmit = () => {
+        this.setState({
+            outputEmail: this.state.email,
+            outputBody: this.state.body,
         })
-        .catch(error => {
-            console.log(error)
+    }
+
+    deletePost = () => {
+        this.setState({
+            outputEmail: '',
+            outputBody: ''
         })
     }
 
     render() {
-        const {postId, email, body} = this.state
+        const {email, body} = this.state
         return (
             <div>
-                <form onSubmit={this.handleSubmit} className='newComment'>
-                    {/* <div className='row'>
-                        <label className='col-15'>ID do post</label>
-                        <input 
-                        type='number'
-                        name='postId'
-                        placeholder='Insira aqui o ID do post...'
-                        className='col-85'
-                        value={postId}
-                        onChange={this.handleChange}/>
-                    </div> */}
+                <div 
+                className='commentsBody'
+                style={{display:(this.state.outputBody? 'block':'none')}}
+                >
+                    <ShowNewComment email={this.state.outputEmail}/>
+                    <ShowNewComment body={this.state.outputBody}/>
+                    <div>
+                        <button
+                        type='button'
+                        onClick={() => this.deletePost()}
+                        >
+                             Excluir
+                        </button>
+                    </div>
+                </div>
+                <form className='newComment'>
                     <div className='row'>
                         <label className='col-15'>E-mail</label>
                         <input
@@ -64,7 +75,15 @@ export class AddComment extends Component {
                         onChange={this.handleChange}/>
                     </div>
                     <div className='row'>
-                        <button type='submit'>Enviar</button>
+                        <button 
+                        type='button'
+                        onClick={() => this.handleSubmit(
+                            this.state.email,
+                            this.state.body 
+                            )}
+                        >
+                            Enviar
+                        </button>
                     </div>
                 </form>
             </div>

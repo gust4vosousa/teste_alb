@@ -1,44 +1,62 @@
 import './AddPost.css'
 import React, { Component } from "react";
 import newPostIcon from '../../Images/newPost.png'
+import ShowNewPost from '../ShowNewPost/ShowNewPost';
+import AddComment from '../AddComment/AddComment';
+import commentsIcon from '../../Images/comments.png'
 
 export class AddPost extends Component {
     constructor(props) {
         super(props)
   
         this.state = {
-            userName: '',
+            username: '',
             title: '',
-            body: ''
+            body: '',
+            outputBody: '',
+            outputTitle: '',
+            outputUsername: ''
         }
     }
 
     handleChange = (e) => {
-        
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
+    handleSubmit = () => {
         this.setState({
-            [e.target.name]: e.target.value})
+            outputUsername: this.state.username,
+            outputTitle: this.state.title,
+            outputBody: this.state.body
+        })
+    }
+
+    deletePost = () => {
+        this.setState({
+            outputUsername: '',
+            outputTitle: '',
+            outputBody: ''
+        })
     }
 
     render() {
-        const {userName, title, body} = this.state
+        const {username, title, body} = this.state
         return (
             <div className='addPost'>
                 <div className='addPostBox'>
                     <h1><img src={newPostIcon}/>Nova postagem</h1>
-                    <form onSubmit={this.handleSubmit} className='newPostForm'>
+                    <form className='newPostForm'>
                         <div className='row'>
                             <label className='col-15'>Nome de usuário</label>
                             <input 
                             type='text'
-                            name='userName'
+                            name='username'
                             placeholder='Insira aqui seu nome de usuário...'
                             className='col-85'
-                            value={userName}
-                            onChange=''/>
+                            value={username}
+                            onChange={this.handleChange}/>
                         </div>
                         <div className='row'>
                             <label className='col-15'>Título</label>
@@ -48,7 +66,7 @@ export class AddPost extends Component {
                             placeholder='Insira aqui o título da postagem...'
                             className='col-85'
                             value={title} 
-                            onChange=''/>
+                            onChange={this.handleChange}/>
                         </div>
                         <div className='row'>
                             <label className='col-15'>Postagem</label>
@@ -58,22 +76,48 @@ export class AddPost extends Component {
                             placeholder='Insira aqui sua postagem...'
                             className='col-85'
                             value={body}
-                            onChange=''/>
+                            onChange={this.handleChange}/>
                         </div>
                         <div className='row'>
-                            <button type='submit'>Enviar</button>
+                            <button
+                            type='button'
+                            onClick={() => this.handleSubmit(
+                                            this.state.username,
+                                            this.state.title,
+                                            this.state.body 
+                                            )}
+                            >
+                                Enviar
+                            </button>
                         </div>
                     </form>
                 </div>
-                <div className='postBox'>
+                <div 
+                className='postBox'
+                style={{display:(this.state.outputBody? 'inline-flex':'none')}}
+                >
                     <div className='postNome'>
-                        <a href='#'>{userName}</a>
+                        <ShowNewPost username={this.state.outputUsername}/>
                     </div>
-                    <div className='postTitulo'> 
-                        <h1>{title}</h1>
+                    <div className='postTitulo'>
+                        <ShowNewPost title={this.state.outputTitle}/>
                     </div>
                     <div className='postCorpo'>
-                        <p>{body}</p>
+                        <ShowNewPost body={this.state.outputBody}/>
+                    </div>
+                    <div>
+                        <button
+                        type='button'
+                        onClick={() => this.deletePost()}
+                        >
+                             Excluir
+                        </button>
+                    </div>
+                    <div className='commentsHeader'>
+                        <h2><img src={commentsIcon}/>Comentários</h2>
+                    </div>
+                    <div className='newCommentHeader'>
+                        <AddComment/>
                     </div>
                 </div>
             </div>
