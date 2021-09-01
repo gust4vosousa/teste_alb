@@ -1,5 +1,5 @@
-import './NotFound.css'
-import errorIcon from '../../Images/error.png'
+import './NotFound.css';
+import errorIcon from '../../Images/error.png';
 
 export default () => 
     <div className='error'>

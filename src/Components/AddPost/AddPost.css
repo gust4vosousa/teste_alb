@@ -20,6 +20,10 @@
   font-size: 16px;
 }
 
+.addPost img {
+  margin-right: 5px;
+}
+
 .addPostBox {
   display: inline-flex;
   flex-direction: column;
@@ -34,87 +38,86 @@
   background-color: #ac5c02;
 }
 
-.newPostForm input, textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    resize: vertical;
-  }
+.newPostForm input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  resize: vertical;
+}
 
-.newPostForm input:focus, 
-            textarea:focus
-{
-    outline-color: #242424;
-    outline-style: solid;
-    outline-width: 1px;
+.newPostForm input:focus,
+textarea:focus {
+  outline-color: #242424;
+  outline-style: solid;
+  outline-width: 1px;
 }
 
 .newPostForm textarea {
-    height: 80px;
-    text-align: start;
-    resize: none;
-  }
-  
+  height: 80px;
+  text-align: start;
+  resize: none;
+}
+
 .newPostForm label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-  }
-  
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
 .newPostForm button {
-    padding: 15px;
-    border: none;
-    font-size: 20px;
-    background-color: #d48831;
-    color: white;
-    transition: background-color .4s;
-    cursor: pointer;
-    font-family: 'Ubuntu', sans-serif;
-    float: right;
-    margin-top: 6px;
+  padding: 15px;
+  border: none;
+  font-size: 20px;
+  background-color: #d48831;
+  color: white;
+  transition: background-color .4s;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
+  float: right;
+  margin-top: 6px;
 }
 
 .newPostForm button:hover {
-    background-color: #242424;
-  }
-
-  .col-15 {
-    float: left;
-    width: 15%;
-    margin-top: 6px;
-  }
-  
-  .col-85 {
-    float: left;
-    width: 85%;
-    margin-top: 6px;
-  }
-  
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  /* Exibição do novo post */
-
-  .newPostBox {
-    display: inline-flex;
-    flex-direction: column;
-    background-color: #242424;
-    padding: 20px;
-    margin-top: 20px;
-    transition: background-color .4s;
-    width: 100%;
+  background-color: #242424;
 }
 
-.newPostBox:hover {
-    background-color: #ac5c02;
+.col-15 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
 }
 
-.newPostBox img {
-    position: relative;
-    float: left;
-    margin-right: 20px;
+.col-85 {
+  float: left;
+  width: 85%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Novos Posts */
+
+.postBox {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #242424;
+  padding: 20px;
+  margin-top: 20px;
+  transition: background-color .4s;
+  width: 100%;
+}
+
+.postBox p {
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.postBox:hover {
+  background-color: #ac5c02;
 }
 
 .postNome a {
@@ -128,10 +131,42 @@
   font-weight: bolder;
   text-decoration: underline;
 }
-  
-  @media screen and (max-width: 700px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
+
+.deleteBtn {
+  padding: 15px;
+  border: none;
+  font-size: 20px;
+  background-color: #d48831;
+  color: white;
+  transition: background-color .4s;
+  cursor: pointer;
+  float: right;
+}
+
+.deleteBtn:hover {
+  background-color: #242424;
+}
+
+/* Comentários dos posts */
+
+.commentsHeader {
+  border-top: 2px solid #ac5c02;
+}
+
+.postBox:hover .commentsHeader {
+  border-top: 2px solid #242424;
+}
+
+@media screen and (max-width: 700px) {
+
+  .addPost,
+  .col-15,
+  .col-85,
+  button {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    position: relative;
+    word-wrap: break-word;
   }
+}

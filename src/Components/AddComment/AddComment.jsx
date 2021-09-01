@@ -1,48 +1,61 @@
-import './AddComment.css'
-import React, { Component } from "react";
-import axios from "axios";
+import './AddComment.css';
+import React, { Component } from 'react';
+import ShowNewComment from '../ShowNewComment/ShowNewComment';
+import deleteIcon from '../../Images/delete.png';
 
 export class AddComment extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
-            // postId: '',
             email: '',
-            body: ''
-        }
-    }
+            body: '',
+            outputEmail: '',
+            outputBody: '',
+        };
+    };
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
 
     handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('https://jsonplaceholder.typicode.com/comments', this.state)
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }
+        this.setState({
+            outputEmail: this.state.email,
+            outputBody: this.state.body,
+        });
+    };
+
+    deletePost = () => {
+        this.setState({
+            outputEmail: '',
+            outputBody: ''
+        });
+    };
 
     render() {
-        const {postId, email, body} = this.state
+        const {email, body} = this.state;
         return (
             <div>
-                <form onSubmit={this.handleSubmit} className='newComment'>
-                    {/* <div className='row'>
-                        <label className='col-15'>ID do post</label>
-                        <input 
-                        type='number'
-                        name='postId'
-                        placeholder='Insira aqui o ID do post...'
-                        className='col-85'
-                        value={postId}
-                        onChange={this.handleChange}/>
-                    </div> */}
+                <div 
+                className='commentsBody'
+                style={{display:(this.state.outputBody? 'block':'none')}}
+                > 
+                    <div>
+                        <button className='deleteBtn'
+                        type='button'
+                        onClick={() => this.deletePost()}
+                        >
+                            <img src={deleteIcon}/>
+                        </button>
+                    </div>
+                    <ShowNewComment email={this.state.outputEmail}/>
+                    <ShowNewComment body={this.state.outputBody}/>
+                </div>
+                <form className='newComment' onSubmit={this.handleSubmit}>
                     <div className='row'>
                         <label className='col-15'>E-mail</label>
                         <input
@@ -51,7 +64,8 @@ export class AddComment extends Component {
                         placeholder='Insira aqui seu e-mail...'
                         className='col-85'
                         value={email} 
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                        required/>
                     </div>
                     <div className='row'>
                         <label className='col-15'>Comentário</label>
@@ -61,15 +75,18 @@ export class AddComment extends Component {
                         placeholder='Insira aqui sua postagem...'
                         className='col-85'
                         value={body}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                        required/>
                     </div>
                     <div className='row'>
-                        <button type='submit'>Enviar</button>
+                        <button type='submit'>
+                            Enviar
+                        </button>
                     </div>
                 </form>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-export default AddComment
+export default AddComment;

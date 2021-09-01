@@ -1,14 +1,10 @@
-import './Feed.css'
-import React, {useState, useEffect} from 'react' //importa a biblioteca React
+import './Feed.css';
+import React, {useState, useEffect} from 'react';
 import {getPosts} from '../../APIs/post';
 import AddComment from '../AddComment/AddComment';
+import commentsIcon from '../../Images/comments.png';
 
-import userIconSmall from '../../Images/userSmall.png'
-import userIconLarge from '../../Images/userLarge.png'
-import newCommentIcon from '../../Images/newComment.png'
-import commentsIcon from '../../Images/comments.png'
-
-export default () => { //exporta a função descrita abaixo
+export default () => {
     const [posts, setPosts, newPost, setNewPost] = useState([]);
     
     useEffect(() => {        
@@ -16,21 +12,10 @@ export default () => { //exporta a função descrita abaixo
         .then(response => setPosts(response))
     },[]);
     
-    return <div className="feed">
+    return <div className='feed'>
         {posts.map((post) =>
             <div className='postBox'>
                 <div className='postNome'>
-                    <div className="dropdown">
-                        <img src={userIconSmall}/>
-                        <div className='dropdownUser'>
-                            <h1>Informações do Usuário</h1>
-                            <img src={userIconLarge}/>
-                            <div className='userInfo'>
-                                <p>{post.user.name}</p><br/>
-                                <p>{post.user.email}</p>
-                            </div>
-                        </div>
-                    </div>
                     <a href='#'>{post.user.username}</a>
                 </div>
                 <div className='postTitulo'> 
@@ -43,15 +28,13 @@ export default () => { //exporta a função descrita abaixo
                     <h2><img src={commentsIcon}/>Comentários</h2>
                 </div>
                 <div className='commentsBody'>
-                    <img src={userIconSmall}/>
                     <p>{post.comment.email}</p>
                     <p>{post.comment.body}</p>
                 </div>
                 <div className='newCommentHeader'>
-                    <h2><img src={newCommentIcon}/>Novo Comentário</h2>
                     <AddComment/>
                 </div>
             </div>
-        )}
+        )};
     </div>
-}
+};
