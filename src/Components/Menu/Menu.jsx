@@ -8,7 +8,7 @@ import settingsIcon from '../../Images/settings.png';
 import homeIcon from '../../Images/home.png';
 import profileIcon from '../../Images/profile.png';
 
-export default () => //exporta a função descrita abaixo
+export default () =>
   <div className='menu'>
         <a href='#'><img src={homeIcon} alt='ícone de início' className='icons'/>Início</a>
         <a href='#'><img src={profileIcon} alt='ícone de perfil' className='icons'/>Meu Perfil</a>

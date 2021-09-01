@@ -5,30 +5,32 @@ export function getPost(id) {
     return (
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
         .then((response) => response.json())
-    )
-}
+    );
+};
 
 export function getPosts() {
+    // Aqui é feito o mapeamento dos Posts com usuários e comentários
+    // Então são filtrados através do ID para deixar cada post e comentário vinculado corretamente
     return (
         fetch('https://jsonplaceholder.typicode.com/posts')
         .then(async (response) => {
-            const postsJSON = response.json()
-            let users = getUsers()
-            let comments = getComments()
+            const postsJSON = response.json();
+            let users = getUsers();
+            let comments = getComments();
             const posts = await postsJSON
-            .then(post => post)
+            .then(post => post);
             users = await users
-            .then(user => user)
+            .then(user => user);
             comments = await comments
-            .then(comment => comment)
+            .then(comment => comment);
             
             const postsComposition = posts.map(post => ({
                 ...post,
                 user: users.filter(user => user.id === post.userId)[0],
                 comment: comments.filter(comment => comment.postId === post.id)[0]
-            }))
+            }));
             return postsComposition;
         }
         )
-    )
-}
+    );
+};

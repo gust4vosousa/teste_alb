@@ -5,7 +5,8 @@ import AddComment from '../AddComment/AddComment';
 import commentsIcon from '../../Images/comments.png';
 
 export default () => {
-    const [posts, setPosts, newPost, setNewPost] = useState([]);
+    // Recebe os valores da API posts já filtrados e exibe as postagens e comentários
+    const [posts, setPosts] = useState([]);
     
     useEffect(() => {        
         getPosts()

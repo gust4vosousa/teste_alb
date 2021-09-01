@@ -7,6 +7,7 @@ import commentsIcon from '../../Images/comments.png';
 import deleteIcon from '../../Images/delete.png';
 
 export class AddPost extends Component {
+    // recebe o nome de usuário, título e conteúdo da postagem e atribui os valores para exibição     
     constructor(props) {
         super(props);
   

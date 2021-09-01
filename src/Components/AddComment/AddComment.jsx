@@ -4,6 +4,7 @@ import ShowNewComment from '../ShowNewComment/ShowNewComment';
 import deleteIcon from '../../Images/delete.png';
 
 export class AddComment extends Component {
+    // recebe o e-mail e conteúdo do comentário e atribui os valores para exibição 
     constructor(props) {
         super(props);
 
