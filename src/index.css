@@ -1,23 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #383636;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
+  background-color: #383636;
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+}
+
+body input,
+body textarea {
+  font-family: 'Ubuntu', sans-serif;
 }
 
 ::placeholder {
-    color: #494949;
-    font-family: 'Ubuntu', sans-serif;
-  }
+  color: #494949;
+  font-family: 'Ubuntu', sans-serif;
+}
 
 /* Estilo dos Ícones */
 
-  .icons {
-    display: block;
-    float: left; 
-    margin-right: 10px;
-  }
+.icons {
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
